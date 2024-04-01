@@ -1,10 +1,14 @@
 import { motion } from 'framer-motion';
+
 import { TitleText } from '../../atoms';
 import SubTitle from '../../atoms/subtitle/SubTitle';
+import { useInView } from 'src/utils/hooks/useInView';
 
 const About = () => {
+  const { ref, isVisible } = useInView({ threshold: 0.3 });
+
   return (
-    <div className="">
+    <div ref={ref} className={`ready-to-reveal ${isVisible ? 'visible' : ''}`}>
       <TitleText title={'About Me'} />
       <SubTitle text="Full Stack JS Developer" className="mt-16 mb-4" />
       <div className="flex xl:flex-row flex-col gap-16 h-auto">
@@ -37,12 +41,12 @@ const About = () => {
           </p>
         </div>
         <motion.div
-          className="xl:w-2/5 w-full mt-8 flex flex-row md:justify-start justify-center hover: cursor-pointer"
-          whileHover={{ scale: 1.1 }}
-          whileTap={{
-            scale: 0,
-            borderRadius: '100%',
-          }}
+          className="xl:w-2/5 w-full mt-8 flex flex-row md:justify-start justify-center hover:cursor-pointer"
+          //   whileHover={{ scale: 1.1 }}
+          //   whileTap={{
+          //     scale: 0,
+          //     borderRadius: '100%',
+          //   }}
         >
           <img
             src={'assets/images/profile.jpg'}
