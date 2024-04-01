@@ -1,8 +1,25 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-    content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
-    theme: {
-        extend: {},
+  content: ['./src/**/*.{html,js,ts,jsx,tsx}'],
+  theme: {
+    colors: {
+      transparent: 'transparent',
+      'primary-background': '#0A1930',
+      'primary-title': '#CDD6F6',
+      grey: '#D9D9D9',
+      neon: '#64FFDA',
     },
-    plugins: [],
+    fontFamily: {
+      roboto: ['Roboto Mono', 'monospace'],
+    },
+    extend: {
+      rotate: {
+        '-90': '-90deg',
+      },
+    },
+  },
+  plugins: [],
+  corePlugins: {
+    preflight: false,
+  },
 };
