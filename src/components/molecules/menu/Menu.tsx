@@ -16,7 +16,7 @@ const Menu: FC<MenuProps> = ({ aboutRef, workRef, contactRef }) => {
       animate={{ opacity: 1, x: 0, y: 0 }}
       transition={{ duration: 0.5, ease: cubicBezier(0.17, 0.55, 0.55, 1) }}
     >
-      <div className="z-50 w-full md:w-24 h-20 md:h-screen flex flex-row md:flex-col justify-start items-center fixed font-medium">
+      <div className="z-50 w-full md:w-24 h-20 md:h-fit flex flex-row md:flex-col justify-start items-center fixed font-medium">
         <MenuItem
           title={'About'}
           onClick={() => aboutRef?.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
