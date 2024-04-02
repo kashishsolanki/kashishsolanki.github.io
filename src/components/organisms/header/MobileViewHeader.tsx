@@ -1,4 +1,5 @@
-import { FC, RefObject, useState } from 'react';
+import { FC, RefObject, useEffect, useState } from 'react';
+import { motion, cubicBezier } from 'framer-motion';
 
 import { Button, MenuItem } from 'atoms';
 import { AboutIcon, ContactIcon, GithubIcon, LinkedInIcon, MailIcon, WorkIcon } from 'icons';
@@ -11,8 +12,32 @@ interface MVHeaderProps {
 
 const MobileViewHeader: FC<MVHeaderProps> = ({ aboutRef, workRef, contactRef }) => {
   const [showDrawer, setShowDrawer] = useState<boolean>(false);
+  const [prevScrollPos, setPrevScrollPos] = useState(0);
+  const [isScrolled, setIsScrolled] = useState<boolean>(false);
+
+  const handleScroll = () => {
+    const currentScrollPos = window.scrollY;
+    if (currentScrollPos === 0 || currentScrollPos > prevScrollPos) {
+      setIsScrolled(false);
+    } else {
+      setIsScrolled(true);
+    }
+    setPrevScrollPos(window.scrollY);
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [prevScrollPos]);
+
   return (
-    <div className="flex flex-row justify-between">
+    <motion.div
+      className={`flex flex-row justify-between ${isScrolled ? 'bg-[#112240ab] w-full h-[80px] z-50 fixed transition-all duration-1500 ease-in shadow-sm shadow-[#64ffda3b]' : 'bg-transparent'}`}
+      initial={{ opacity: 0, x: -100, y: -100 }}
+      animate={{ opacity: 1, x: 0, y: 0 }}
+      transition={{ duration: 0.5, ease: cubicBezier(0.17, 0.55, 0.55, 1) }}
+    >
       <div className="pl-6 pt-6">
         <span className="flex flex-row justify-start font-medium">
           <span className="text-grey text-2xl">{'<'}</span>
@@ -25,7 +50,7 @@ const MobileViewHeader: FC<MVHeaderProps> = ({ aboutRef, workRef, contactRef }) 
       </div>
 
       <button
-        className={`w-14 h-14 bg-transparent rounded border-0 z-50 ${showDrawer ? 'fixed' : 'relative'} right-0 top-0`}
+        className={`w-14 h-14 bg-transparent rounded border-0 z-50 fixed right-0 ${showDrawer ? 'fixed' : 'relative'} right-0 top-0`}
         onClick={() => setShowDrawer(!showDrawer)}
       >
         <div className="block absolute right-0 mr-6">
@@ -104,7 +129,7 @@ const MobileViewHeader: FC<MVHeaderProps> = ({ aboutRef, workRef, contactRef }) 
           </div>
         </div>
       </aside>
-    </div>
+    </motion.div>
   );
 };
 

@@ -6,3 +6,4 @@ export { default as AboutIcon } from './about';
 export { default as WorkIcon } from './work';
 export { default as ContactIcon } from './contact';
 export { default as DownloadIcon } from './download';
+export { default as Folder } from './folder';

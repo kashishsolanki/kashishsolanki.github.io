@@ -1,8 +1,10 @@
+import { useInView } from 'src/utils/hooks/useInView';
 import { TitleText } from '../../atoms';
 
 const GetInTouch = () => {
+  const { ref, isVisible } = useInView({ threshold: 0.2 });
   return (
-    <div className="flex flex-col">
+    <div ref={ref} className={`flex flex-col ready-to-reveal ${isVisible ? 'visible' : ''}`}>
       <TitleText title={'Get In Touch'} className="mb-20" />
       <p className="text-grey xl:px-52 lg:px-8 md:px-8 px-0 text-left">
         Although I’m not currently looking for any new opportunities, my inbox is always open. Whether you have a

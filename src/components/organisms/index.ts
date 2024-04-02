@@ -1,4 +1,5 @@
 export { default as Project } from './projects/Project';
+export { default as OtherProjects } from './projects/OtherProjects';
 export { default as About } from './about/About';
 export { default as Header } from './header/Header';
 export { default as MobileViewHeader } from './header/MobileViewHeader';
