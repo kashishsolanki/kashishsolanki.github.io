@@ -14,7 +14,7 @@ const Project = (props: ProjectProps) => {
   const { direction, type, name, description, stacks, image } = props;
   return (
     <div className="flex flex-col gap-4 mt-32 mb-16 hover:cursor-pointer">
-      <div className={`relative w-auto px-[100px] flex flex-col justify-between align-center`}>
+      <div className={`relative w-auto xl:px-[100px] px-0 flex flex-col justify-between align-center`}>
         <motion.div
         //   initial={{ y: 0, x: 100 }}
         //   whileInView={{
@@ -26,11 +26,11 @@ const Project = (props: ProjectProps) => {
           <img
             src={image}
             alt="project-name"
-            className={`xl:h-[300px] md:h-[300px] h-[258px] lg:w-full xl:w-[500px] w-full xl:absolute relative ${direction === 'left' ? 'right-[100px]' : ''}`}
+            className={`xl:h-[300px] md:h-[300px] h-[258px] lg:w-full xl:w-[500px] w-full xl:absolute relative ${direction === 'left' ? 'xl:right-[100px]' : ''}`}
           />
         </motion.div>
         <div
-          className={`right-0 left-0 xl:relative absolute top-0 xl:bg-transparent bg-[#112240ab] h-[-webkit-fill-available]`}
+          className={`right-0 left-0 xl:relative absolute top-0 xl:bg-transparent bg-[#112240e6] h-[-webkit-fill-available]`}
         >
           <motion.div
             initial={{ y: -100, x: 0 }}
