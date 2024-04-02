@@ -19,7 +19,7 @@ const Project = (props: ProjectProps) => {
           <img
             src={image}
             alt="project-name"
-            className={`xl:h-[300px] md:h-[300px] h-[238px] lg:w-full xl:w-[500px] w-[348px] xl:absolute relative ${direction === 'left' ? 'right-0' : 'left-0'}`}
+            className={`xl:h-[300px] md:h-[300px] h-[258px] lg:w-full xl:w-[500px] w-full xl:absolute relative ${direction === 'left' ? 'right-0' : 'left-0'}`}
           />
         </motion.div>
         <div

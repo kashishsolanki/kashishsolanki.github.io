@@ -33,7 +33,7 @@ const ProjectList = () => {
     },
   ];
 
-  const { ref, isVisible } = useInView({ threshold: 0.3 });
+  const { ref, isVisible } = useInView({ threshold: 0.1 });
   return (
     <div ref={ref} className={`ready-to-reveal ${isVisible ? 'visible' : ''}`}>
       <TitleText title={"Some things I've built"} className="mb-20" />

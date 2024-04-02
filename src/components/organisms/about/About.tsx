@@ -5,7 +5,7 @@ import SubTitle from '../../atoms/subtitle/SubTitle';
 import { useInView } from 'src/utils/hooks/useInView';
 
 const About = () => {
-  const { ref, isVisible } = useInView({ threshold: 0.3 });
+  const { ref, isVisible } = useInView({ threshold: 0.2 });
 
   return (
     <div ref={ref} className={`ready-to-reveal ${isVisible ? 'visible' : ''}`}>
@@ -19,22 +19,23 @@ const About = () => {
             development.
           </p>
           <p className="text-grey font-medium md:text-base text-sm">
-            Proficiency in the use of JavaScript/TypeScript technologies like React, React.JS, Angular.JS, Angular,
-            Node.JS, REST, GraphQL and Serverless with excellent visual design skills with sensitivity to user-system
-            interaction.
+            Proficiency in the use of <span className="text-neon">JavaScript/TypeScript technologies</span> like React,
+            React.JS, Angular.JS, Angular, Node.JS, REST, GraphQL and Serverless with excellent visual design skills
+            with sensitivity to user-system interaction.
           </p>
-          <p className="text-grey font-medium md:text-base text-sm">
+          {/* <p className="text-grey font-medium md:text-base text-sm">
             Develop highly interactive web applications utilizing JavaScript, HTML5, CSS, ReactJS, and integrating
             Restful or GraphQL API, external web services ensuring high performance on Mobile and Desktop and
             integrating third-party tools or services.
-          </p>
+          </p> */}
           <p className="text-grey font-medium md:text-base text-sm">
             Worked with BackEnd technologies such as NodeJS, ExpressJS along with AWS cloud hosting services such as
-            Serverless, AWS AppSync, VPC, Step Functions. Also have hands-on experience in AWS EC2, S3, Route53, IVS and
-            Elemental Media Services.
+            <span className="text-neon"> Serverless, AWS AppSync, VPC, Step Functions.</span> Also have hands-on
+            experience in AWS EC2, S3, Route53, IVS and Elemental Media Services.
           </p>
           <p className="text-grey font-medium md:text-base text-sm">
-            Experience working on BackEnd technologies interact with MongoDB, Postgres, MySQL.
+            Experience working on BackEnd technologies interact with{' '}
+            <span className="text-neon">MongoDB, Postgres, MySQL.</span>
           </p>
           <p className="text-grey font-medium md:text-base text-sm">
             A desire to work in a fast-paced and challenging environment
